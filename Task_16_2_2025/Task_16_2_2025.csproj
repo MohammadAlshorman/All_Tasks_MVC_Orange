@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\books\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\uploads\about\1633529333about_logo.png" />
+    <None Include="wwwroot\uploads\libraries\1633534040أصول القانوين التجاري.jpg" />
+    <None Include="wwwroot\uploads\libraries\1633534047الوجيز في القانوين الجنائي.jpg" />
+    <None Include="wwwroot\uploads\libraries\1633534197أصول القانون للسنهوري.jpg" />
+    <None Include="wwwroot\uploads\libraries\1635839338ad-agency-banner.jpg" />
+    <None Include="wwwroot\uploads\services\1633530992projects.png" />
+    <None Include="wwwroot\uploads\services\1633531145projects.png" />
+    <None Include="wwwroot\uploads\services\1633531218projects.png" />
+    <None Include="wwwroot\uploads\services\1633531363projects.png" />
+    <None Include="wwwroot\uploads\services\1637474433slider02.png" />
+    <None Include="wwwroot\uploads\services\1637474539slider02.png" />
+    <None Include="wwwroot\uploads\services\1637474645slider02.png" />
+    <None Include="wwwroot\uploads\services\1637474818slider02.png" />
+    <None Include="wwwroot\uploads\services\1637475146slider02.png" />
+    <None Include="wwwroot\uploads\services\1637475239slider02.png" />
+    <None Include="wwwroot\uploads\services\1637475344slider02.png" />
+    <None Include="wwwroot\uploads\services\1637475443slider02.png" />
+    <None Include="wwwroot\uploads\services\1637475544slider02.png" />
+    <None Include="wwwroot\uploads\setting\1633529701page_title.jpg" />
+    <None Include="wwwroot\uploads\setting\1633531405about_logo.png" />
+    <None Include="wwwroot\uploads\sliders\1633528467slider2.png" />
+    <None Include="wwwroot\uploads\sliders\1633528482slider05.png" />
+    <None Include="wwwroot\uploads\teams\1637476675305992 - Copy.png" />
+    <None Include="wwwroot\uploads\teams\1637477429emad.png" />
+    <None Include="wwwroot\uploads\teams\1637477465dawwod.png" />
+    <None Include="wwwroot\uploads\teams\1637477682aiman.png" />
+    <None Include="wwwroot\uploads\teams\1637479115reda.png" />
+    <None Include="wwwroot\uploads\teams\1637479198nagla.png" />
+    <None Include="wwwroot\uploads\teams\1637479257wala.png" />
+    <None Include="wwwroot\uploads\teams\1637479382saif.png" />
+    <None Include="wwwroot\uploads\teams\1637479475salem.png" />
+    <None Include="wwwroot\uploads\teams\1637825035WhatsApp Image 2021-11-25 at 11.18.50 AM.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+</Project>
