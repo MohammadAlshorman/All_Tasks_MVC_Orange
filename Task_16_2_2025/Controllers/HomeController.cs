@@ -30,6 +30,22 @@ namespace Task_16_2_2025.Controllers
         }
 
 
+        public IActionResult fraamskt()
+        {
+            return View();
+        }
+
+        public IActionResult dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult team()
+        {
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
