@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Login";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
 <section class="sign-in">
@@ -12,67 +11,34 @@
             </div>
 
             <div class="signin-form">
-                <h2 class="form-title">Sign up</h2>
+                <h2 class="form-title">Sign in</h2>
 
                 <form method="POST" class="register-form" id="login-form" action="/User/HandleLogin">
                     <div class="form-group">
                         <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="email" id="email" placeholder="Your Email" required />
+                        <input type="text" name="email" id="email" placeholder="Your Email"
+                               value="@(ViewData["SavedEmail"] ?? "")" required />
                     </div>
                     <div class="form-group">
                         <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" name="pass" id="your_pass" placeholder="Password" required />
-
+                        <input type="password" name="pass" id="your_pass" placeholder="Password"
+                               value="@(ViewData["SavedPassword"] ?? "")" required />
                     </div>
+
+
+                    <div class="form-group" style="display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" id="remember-me" name="rememberMe" style="width: 16px; height: 16px;" />
+                        <label for="remember-me">Remember Me</label>
+                    </div>
+
+
+
+               
 
                     <div class="form-group form-button">
                         <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
                     </div>
                 </form>
-
-                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                    @if (TempData["ErrorMessage"] != null)
-                    {
-                        <text>
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Error!',
-                                        text: "@TempData["ErrorMessage"]",
-                                        confirmButtonText: 'Try Again'
-                                    });
-                        </text>
-                    }
-
-                    @if (TempData["SuccessfulMessage"] != null)
-                    {
-                        <text>
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Success!',
-                                        text: "@TempData["SuccessfulMessage"]",
-                                        confirmButtonText: 'Login'
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            window.location.href = '@Url.Action("Login", "User")'; // ✅ ينقل المستخدم إلى صفحة تسجيل الدخول بعد الضغط على OK
-                                        }
-                                    });
-                        </text>
-                    }
-                    });
-                </script>
-
-
-                <div class="social-login">
-                    <span class="social-label">Or login with</span>
-                    <ul class="socials">
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

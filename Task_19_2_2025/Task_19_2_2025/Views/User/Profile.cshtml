@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    ViewData["Title"] = "User Profile";
 }
 
 <h1 class="profile-heading">User Profile</h1>
@@ -9,13 +9,16 @@
         <h3 class="profile-card-title">Your Profile Information</h3>
         <div class="profile-details">
             <div class="profile-item">
-                <strong>Name:</strong>@ViewBag.Name
+                <strong>Name:</strong> @ViewBag.Name
             </div>
             <div class="profile-item">
-                <strong>Email:</strong>@ViewBag.Email
+                <strong>Email:</strong> @ViewBag.Email
             </div>
             <div class="profile-item">
-                <strong>Password:</strong> @("********") <!-- إخفاء كلمة المرور لأسباب أمنية -->
+                <strong>Phone:</strong> @(string.IsNullOrEmpty(ViewBag.Phone) ? "Not Set" : ViewBag.Phone)
+            </div>
+            <div class="profile-item">
+                <strong>Address:</strong> @(string.IsNullOrEmpty(ViewBag.Address) ? "Not Set" : ViewBag.Address)
             </div>
         </div>
         <div class="profile-actions">
@@ -23,75 +26,3 @@
         </div>
     </div>
 </div>
-
-
-<style>
-    .profile-container {
-        max-width: 700px;
-        margin: 30px auto;
-        padding: 20px;
-        background-color: #f4f7fc;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-card {
-        background-color: #ffffff;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-heading {
-        text-align: center;
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    .profile-card-title {
-        font-size: 1.6rem;
-        color: #007bff;
-        margin-bottom: 20px;
-        border-bottom: 2px solid #007bff;
-        padding-bottom: 10px;
-    }
-
-    .profile-details {
-        margin-bottom: 30px;
-    }
-
-    .profile-item {
-        font-size: 1rem;
-        margin: 10px 0;
-        color: #555;
-    }
-
-    .profile-actions {
-        text-align: center;
-    }
-
-    .btn {
-        padding: 12px 25px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background-color 0.3s ease;
-    }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
- 
-
-    .profile-card {
-        padding: 20px;
-    }
-
-    }
-</style>
