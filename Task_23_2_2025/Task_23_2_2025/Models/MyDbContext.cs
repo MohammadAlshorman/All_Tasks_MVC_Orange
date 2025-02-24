@@ -26,5 +26,3 @@ public partial class MyDbContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
-
-
