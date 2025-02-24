@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Task_24_2_2025.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded" style="width: 100%; border: none;">
+                <img src="@item.Image" class="card-img-top rounded-top" alt="@item.Name" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text text-muted"><b>Price: @item.Price JD</b></p>
+                    <p class="card-text" style="min-height: 60px;">@item.Description</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-info btn-sm">Details</a>
+                        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
