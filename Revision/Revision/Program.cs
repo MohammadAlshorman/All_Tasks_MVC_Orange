@@ -1,29 +1,37 @@
 using Microsoft.EntityFrameworkCore;
-using Task_25_2_2025.Models;
+using Revision.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ? ????? ??? ??? MVC
-builder.Services.AddControllersWithViews();
-
-// ? ????? ??? ??????? (Session)
+// Add services to the container.
+builder.Services.AddDistributedMemoryCache(); // Required for session storage
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // ??? ?????? ??????
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set timeout duration as needed
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
 
-// ? ????? ????? ???????? (SQL Server)
+
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnectionString")));
 
+
+
 var app = builder.Build();
 
-// ? ????? ???? ???????
+// Enable session
+app.UseSession();
+
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -32,14 +40,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// ? ??????? `Session` ??? `Authorization`
-app.UseSession();
 
 app.UseAuthorization();
 
-// ? ????? ?????? ?????????? ??? ????? ??????
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

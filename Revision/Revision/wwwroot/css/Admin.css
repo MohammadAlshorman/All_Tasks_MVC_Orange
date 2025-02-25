@@ -1,0 +1,60 @@
+/* Admin Dashboard Layout */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+
+.admin-container {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #343a40;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    background-color: #2c3136;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .sidebar-menu li {
+        padding: 10px 20px;
+        border-bottom: 1px solid #4b545c;
+    }
+
+        .sidebar-menu li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+            .sidebar-menu li a i {
+                margin-right: 10px;
+            }
+
+            .sidebar-menu li a:hover {
+                color: #007bff;
+            }
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    background-color: #fff;
+    min-height: 100vh;
+}

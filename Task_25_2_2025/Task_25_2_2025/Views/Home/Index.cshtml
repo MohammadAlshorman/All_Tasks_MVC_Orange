@@ -1,8 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
+    var userName = Context.Session.GetString("UserName");
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container text-center mt-5">
+    <h1 class="text-primary">Welcome, @(string.IsNullOrEmpty(userName) ? "Guest" : userName)!</h1>
+    <p class="text-muted">We’re glad to have you here.</p>
+
+    @if (string.IsNullOrEmpty(userName))
+    {
+        <p class="text-danger">⚠ Session is empty! Please check if the login is working correctly.</p>
+        <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Login</a>
+    }
+    else
+    {
+        <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    }
 </div>
